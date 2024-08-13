@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        .video-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        iframe {
+            width: 80%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+        p {
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container" id="videoContainer"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('videoId');
+        const videoContainer = document.getElementById('videoContainer');
+
+        if (videoId) {
+            videoContainer.innerHTML = `
+                <iframe src="https://filemoon.sx/e/${videoId}" allowfullscreen></iframe>
+            `;
+        } else {
+            videoContainer.innerHTML = '<p>Video not found</p>';
+        }
+    </script>
+</body>
+</html>
