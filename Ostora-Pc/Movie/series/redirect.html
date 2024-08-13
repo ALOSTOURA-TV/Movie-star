@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecting...</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"crossorigin="anonymous"></script>
+<style>
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .countdown-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .countdown {
+            font-size: 2em;
+            margin-top: 10px;
+            opacity: 1;
+            color: #000;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+</style>
+</head>
+<body>
+  <div class="countdown-container">
+  <!-- ad1 -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2412399424552673"
+       data-ad-slot="9403318193"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+<p>Get ready to enjoy your show! You’ll be redirected to the video shortly...</p>
+<p class="countdown">7</p>
+
+<!-- ad2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2412399424552673"
+     data-ad-slot="8227598200"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<script>
+let countdown = 7;
+        const countdownElement = document.querySelector('.countdown');
+
+        const colors = ["#660000", "#663300", "#666600", "#003300", "#000066", "#330033"]; // Example color array
+
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.style.opacity = 0; // Fade out
+            countdownElement.style.transform = "scale(0.5)"; // Shrink
+            setTimeout(() => {
+                countdownElement.textContent = countdown;
+                countdownElement.style.color = colors[countdown % colors.length]; // Change color
+                countdownElement.style.opacity = 1; // Fade in
+                countdownElement.style.transform = "scale(1.1)"; // Grow
+            }, 500); // Wait for the fade-out and shrink to complete
+            if (countdown <= 0) {
+                clearInterval(interval);
+                const urlParams = new URLSearchParams(window.location.search);
+                const imdbId = urlParams.get('id');
+                window.location.href = `https://emirati.top/show/view.html?id=${imdbId}`;
+            }
+        }, 1000);
+</script>
+</body>
+</html>
