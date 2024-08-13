@@ -1,0 +1,13 @@
+* {box-sizing: border-box;}
+body{margin:0;background-color:#000;}
+:root{
+--plyr-color-main:#222;
+--plyr-video-control-color:#007654/*#ff0030*/;}
+.plyr--video{background:#fff;height:100%;overflow: hidden;}
+.column{grid-template-columns: repeat(4,minmax(0,1fr));}
+.grid{display:grid;gap:0.25rem;padding:0.25rem;}
+.relative{position:relative;}
+img,svg, video{max-width:100%;height:140px;border-radius:10px;}
+.w-full{display:block;width:100%;}
+@media (orientation:landscape){
+.column{grid-template-columns:repeat(5,minmax(0,1fr));}}
