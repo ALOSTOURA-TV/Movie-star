@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="notice">
+      If the video doesn't play, click the cloud icon in the top left corner of the video to change the video server.
+  </div>
+  <div id="player" class="player" style="display: none;">
+      <div class="player-content">
+          <button class="close-btn"></button>
+          <iframe id="movie-iframe" frameborder="0" allowfullscreen></iframe>
+      </div>
+  </div>
+
+  <script>
+      const player = document.getElementById('player');
+      const iframe = document.getElementById('movie-iframe');
+      const closeButton = document.querySelector('.player .close-btn');
+
+      function getQueryParam(param) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(param);
+      }
+
+      function initialize() {
+          const imdbId = getQueryParam('id');
+          if (imdbId) {
+              // Set iframe source to the video URL
+              iframe.src = `https://vidsrc.xyz/embed/movie?imdb=${imdbId}`;
+              player.style.display = 'flex'; // Show the player
+          }
+
+          // Ensure the close button exists before adding event listener
+          if (closeButton) {
+              closeButton.addEventListener('click', () => {
+                  player.style.display = 'none';
+                  iframe.src = ''; // Clear iframe source
+                  window.location.href = 'index.html'; // Redirect to home page
+              });
+          } else {
+              console.error('Close button not found.');
+          }
+      }
+
+      // Initialize the page after DOM content is loaded
+      document.addEventListener('DOMContentLoaded', initialize);
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title Tag -->
+  <title>Movie Gallery - Watch Movies Online</title>
+
+  <!-- Meta Descriptions -->
+  <meta name="description" content="Watch the latest movies online for free. Stream your favorite films in high quality with no sign-up required.">
+  <meta name="keywords" content="free movies, watch movies online, streaming, free streaming, movie gallery">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Movie Gallery - Watch Movies Online">
+  <meta property="og:description" content="Stream the latest movies for free. High-quality streaming with no sign-up required.">
+  <meta property="og:image" content="https://i.postimg.cc/6qYYF5hM/fb.png">
+  <meta property="og:url" content="https://movie-gallery.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Movie Gallery - Watch Movies Online">
+  <meta name="twitter:description" content="Watch the latest movies online for free. Stream your favorite films in high quality with no sign-up required.">
+  <meta name="twitter:image" content="https://i.postimg.cc/MZDPnd81/x.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://movie-gallery.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+  <div id="search-container">
+      <div id="search-wrapper">
+          <input type="text" id="search-input" placeholder="Search Movie">
+          <button id="search-button" type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <button id="refreshButton" onclick="refreshPage()"><i class="fas fa-sync-alt"></i></button>
+  </div>
+  <div id="filters">
+      <select id="release-year">
+          <option value="">Release Year</option>
+          <!-- Release year options will be populated dynamically -->
+      </select>
+
+      <select id="genre">
+          <option value="">Genre</option>
+          <!-- Genre options will be populated dynamically -->
+      </select>
+  </div>
+
+  <button id="goToTopButton" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+  <div class="container">
+      <!--<h1>Movie Gallery</h1>-->
+      <div id="movie-gallery" class="grid"></div>
+      <div id="movie-player" class="player">
+          <div class="player-content">
+              <button class="close-btn"></button>
+              <iframe id="movie-iframe" frameborder="0" allowfullscreen></iframe>
+          </div>
+      </div>
+  </div>
+  <button id="load-more-button">Load More</button>
+
+  <script src="script.js"></script>
+  <script>
+      function refreshPage() {
+          location.reload(); // Reloads the current page
+      }
+  </script>
+  <script>
+      // Show the button when the user scrolls down 100px from the top
+      window.onscroll = function() {
+          const goToTopButton = document.getElementById("goToTopButton");
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+              goToTopButton.style.display = "block";
+          } else {
+              goToTopButton.style.display = "none";
+          }
+      };
+
+      // Scroll to the top when the button is clicked
+      function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+  </script>
+  <script type='text/javascript' src='//perilastronaut.com/cc/5f/10/cc5f10108682602bebea987441a08910.js'></script>
+</body>
+</html>
