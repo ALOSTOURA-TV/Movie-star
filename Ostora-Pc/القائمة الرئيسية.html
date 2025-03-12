@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="rtl">
+<html dir="rtl">
 <head><title>القائمة الرئيسية</title></head>
-<link rel="ICON" href="Ostora.png"style="border-radius:100%;" />
+<link rel="ICON" href="https://i.imgur.com/54DNXLH.png">
 <body>
-<html>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="Ostora-font.ttf">
-<body oncontextmenu="return false;">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+@import "compass/css3";
+</style>
+
 <style type="text/css">
 
 <style>
-body {}
-nav {
+body {
+    display: flex;
+    justify-content: center; /* توسيط أفقي */
+    align-items: center; /* توسيط رأسي */
+    height: 100vh; /* جعل الصفحة تأخذ كامل ارتفاع الشاشة */
+    margin: 0;
+    padding: 0;
+    font-family: 'Readex Pro', sans-serif;
+    background: #FFF;
+     user-select: none;
+    }
+    nav {
 	
     position: fixed;
     margin-top:-60px;
@@ -22,58 +38,184 @@ nav {
     display: flex;
     overflow-x: auto;
     z-index: 99999999999;}
-</style>
-<style type="text/css">
-body {
 
-user-select:none;
-list-style:none;
 
-}
+
+        /* شريط السلايدر */
+            .slider-container {
+            justify-content: center; /* توسيط أفقي */
+            align-items: center; /* توسيط رأسي */
+            height: 200px;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #FFF;
+            z-index: 1000;
+            display: flex;
+            border-radius: 0 0 10px 10px;
+            border: 2px solid #990000;
+
+
+
+margin-bottom:0px;
+border:2px solid rgba(188,17,21,255);
+
+display:inline-block;
+
+margin-left:0px;
+			
+			
+        }
 #page {
-margin-top:60px;
-width:100%;
-margin-bottom:10px;
+            padding-top: 200px; /* تعديل لتجنب التداخل مع شريط التنقل */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        /* حركة الصور */
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            opacity: 0;
+            transition: left 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            left: 0;
+            opacity: 1;
+        }
+
+        .slide.prev {
+            
+            opacity: 0;
+        }
+
+        .slide.next {
+            left: 100%;
+            opacity: 0;
+        }
+
+        /* الصورة بملء الحاوية */
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+		
+		@media (min-width: 768px) and (max-width: 1024px), (orientation: landscape) {
+    .slider-container {
+        display: none !important;
+    }
+
+    #fallback-image {
+        display: block !important;
+    }
+
+    #page {
+        padding-top: 45px; !important; /* لتجنب المساحة الفارغة */
+    }
 }
-</style>
-</head>
-<body dir="rtl">
-<header>
-</span>
-</header>
-<center>
-<div id="page">
-<nav class="nav">
-<a nav="#"><img src="c1871510_6594461_main.png" style="width: 356px; height: 40px; border-radius: 10px; margin-right:-0%;" /></a>
+/* الصورة البديلة */
+        #fallback-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 99.5%;
+            max-height: 180px;
+            object-fit: contain;
+            border-radius: 0px 0px 10px 10px;
+            border: 2px solid rgba(188, 17, 21, 255);
+            background: #FFF;
+            z-index: 1000;
+        }
 
-</a>
-</nav>
-</iframe>
-</body>
-</html>
+        /* عند تفعيل الصورة البديلة يتم دفع المحتوى */
+        @media (min-width: 768px) {
+            .slider-container {
+                display: none !important;
+            }
+            #fallback-image {
+                display: block !important;
+            }
+            
 
 
 
+		
+    </style>
+
+
+<!-- سلايدر الصور -->
+	
+<div class="slider-container" style="right: 0px;left: 0px;">
+    <div class="slider">
+        
+		<img alt="المداح"src="https://i.imgur.com/W9PHVmg.jpeg" class="slide active">
+        <img alt="سيد الناس"src="https://i.imgur.com/np5umiW.jpeg" class="slide prev next">
+        <img alt="العتولة2"src="https://i.imgur.com/PR7qJUL.jpeg" class="slide prev">
+        <img alt="حكيم باشا"src="https://i.imgur.com/GNcUPWY.jpeg" class="slide prev">
+        <img alt="فهد البطل"src="https://i.imgur.com/5h5qcNs.jpeg" class="slide prev">
+        <img alt="اش اش"src="https://i.imgur.com/VjHNqSr.jpeg" class="slide prev">
+    
+
+</div>
+</div>
+<!-- الصورة البديلة -->
+
+    <img id="fallback-image" src="https://raw.githack.com/ALOSTOURA-TV/img/main/main.png">
+
+<script>
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide() {
+        slides[index].classList.remove("active");
+        slides[index].classList.add("prev");
+
+        index = (index + 1) % slides.length;
+
+        slides[index].classList.remove("prev", "next");
+        slides[index].classList.add("active");
+
+        let nextIndex = (index + 1) % slides.length;
+        slides[nextIndex].classList.add("next");
+    }
+
+    setInterval(showSlide, 3000); // تبديل الصور كل 3 ثواني
+	
+	
+	
+</script>
 
 </center>
-<body>
+
+</div>
+
+
+
 <style type="text/css">
-body {
-background:#FFF;
-padding:0;
-margin:0;
-}
+
+
 #page a {
 height:35px;
-width:98%;
+width:100%;
 padding-top:8px;
 padding-bottom:2px;
 margin-bottom:0px;
 border:2px solid rgba(188,17,21,255);
-border-radius:15px;
+border-radius:10px;
 display:inline-block;
-margin-right:2px;
-margin-left:0px;
 margin-top:10px;
 }
 #page a img {
@@ -86,8 +228,9 @@ padding-bottom:0px;
 #page a p {
 text-align:center;
 font-family: 'Readex Pro', sans-serif;
+font-size: 12px;
 position: absolute;
-margin-right:17%;
+margin-right:24%;
 margin-top:5px;
 width: 50%;
 display:inline-block;
@@ -105,15 +248,7 @@ width:42px;height:42px
     color: #000;
     background: #fbd034;
 }
-.floating-button {position: fixed;bottom: 20px;left: 20px;width: 50px;height: 50px;
- background-color: #210f80;border-radius: 50%;display: flex;
- align-items: center;justify-content: center;cursor: pointer;
- opacity: 0.8;box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
- transition: left 0.3s ease, opacity 0.3s ease, transform 0.2s ease;}
-.floating-button:hover {background-color: #fbd034;transform: scale(1.1);}
-.arrow-up {width: 0;height: 0;border-left: 12px solid transparent;
- border-right: 12px solid transparent;border-bottom: 25px solid white;
- position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}}
+
 </style>
 </head>
 <body dir="rtl">
@@ -122,61 +257,137 @@ width:42px;height:42px
 </header>
 <div id="page">
 	
+	
 
-<a href="سيرفر البث المباشر.html" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر البث الرئيسي</p></a>
-<a href="go:RMS2" ><img src="02.png" style="height:42px;border-radius:100%;" /><p>المسلسلات العربيه</p></a>
-<a href="go:S-RAMADAN" ><img src="03.png" style="height:42px;border-radius:100%;" /><p>مسلسلات رمضان 2024</p></a>
-<a href="go:RMF3" ><img src="04.png" style="height:42px;border-radius:100%;" /><p>أفلام الزمن الجميل</p></a>
-<a href="Movie\Movie-Arbic.html" ><img src="05.png" style="height:42px;border-radius:100%;" /><p>الافلام العربيه</p></a>
-<a href="go:RMS5" ><img src="06.png" style="height:42px;border-radius:100%;" /><p>مسرحيات</p></a>
-<a href="go:RMS6" ><img src="07.png" style="height:42px;border-radius:100%;" /><p>سبيستون</p></a>
-<a href="go:RMS7" ><img src="08.png" style="height:42px;border-radius:100%;" /><p>المصارعه الحره</p></a>
-<a href="Movie/movies/index.html" ><img src="09.png" style="height:42px;border-radius:100%;" /><p>الافلام الاجنبيه</p></a>
-<a href="Movie/series/index.html" ><img src="10.png" style="height:42px;border-radius:100%;" /><p>المسلسلات الاجنبيه</p></a>
-<a href="go:RMS10" ><img src="11.png" style="height:42px;border-radius:100%;" /><p>المسلسلات التركية </p></a>
-<a href="go:RMS11" ><img src="12.png" style="height:42px;border-radius:100%;" /><p>المسلسلات الهنديه </p></a>
-<a href="go:RMS12" ><img src="13.png" style="height:42px;border-radius:100%;" /><p>المسلسلات الاسيوية</p></a>
-<a href="go:RMS16" ><img src="14.png" style="height:42px;border-radius:100%;" /><p>قصص الأنبياء </p></a>
-<a href="go:RMS14" ><img src="15.png" style="height:42px;border-radius:100%;" /><p>القران الكريم </p></a>
-<a href="go:RMS13" ><img src="16.png" style="height:42px;border-radius:100%;" /><p>محطات الراديو </p></a>
-<a href="go:New" ><img src="17.png" style="height:42px;border-radius:100%;" /><p>سيرفر  جديد </p></a>
-<a href="go:RMS15" ><img src="18.png" style="height:42px;border-radius:100%;" /><p>سيرفر vip</p></a>
+<a href="‏سيرفر البث المباشر.html" ><p>سيرفر البث الرئيسي</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.المسلسلات العربية" ><p>المسلسلات العربيه</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/02.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.مسلسلات رمضان 2025" ><p>مسلسلات رمضان 2025</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/03.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.أفلام الزمن الجميل" ><p>أفلام الزمن الجميل</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/04.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏Movie\Movie-Arbic.html" ><p>الافلام العربيه</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/05.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.مسرحيات" ><p>مسرحيات</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/06.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.سبيستون" ><p>سبيستون</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/07.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.المصارعه الحره" ><p>المصارعه الحره</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/08.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏Movie/movies/index.html" ><p>الافلام الاجنبيه</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/09.png" style="height:42px;border-radius:100%;" /></a>
+<a href="Movie/series/index.html" ><p>المسلسلات الاجنبيه</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/10.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:RMS10" ><p>المسلسلات التركية </p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/11.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:RMS11" ><p>المسلسلات الهنديه </p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/12.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:RMS12" ><p>المسلسلات الاسيوية</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/13.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.قصص الأنبياء" ><p>قصص الأنبياء </p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/14.png" style="height:42px;border-radius:100%;" /></a>
+<a href="‏html.القران الكريم" ><p>القران الكريم </p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/15.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:RMS13" ><p>محطات الراديو </p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/16.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:New" ><p>سيرفر  جديد </p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/17.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:RMS15" ><p>سيرفر vip</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/18.png" style="height:42px;border-radius:100%;" /></a>
 
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 1</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 2</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 3</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 4</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 5</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 6</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 7</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 8</p></a>
-<a href="#" ><img src="01.png" style="height:42px;border-radius:100%;" /><p>سيرفر 9</p></a>
+<a href="go:SER1" ><p>سيرفر 1</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:SER2" ><p>سيرفر 2</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="go:SER3" ><p>سيرفر 3</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="#" ><p>سيرفر 4</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="#" ><p>سيرفر 5</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="#" ><p>سيرفر 6</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="#" ><p>سيرفر 7</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="#" ><p>سيرفر 8</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+<a href="#" ><p>سيرفر 9</p><img src="https://raw.githack.com/ALOSTOURA-TV/img/main/01.png" style="height:42px;border-radius:100%;" /></a>
+
+
+
 
 
 
 </div>
-</html>
-</div>
-<div id="go-to-top-button" class="floating-button"><div class="arrow-up"></div></div>
-
 
 <script>
-        const goToTopButton = document.getElementById('go-to-top-button');
+    document.addEventListener("DOMContentLoaded", async function () {
+        const CACHE_NAME = "image-cache-v2"; // اسم الكاش
+        const defaultImage = "https://i.imgur.com/CXGiUgJ.jpg"; // صورة افتراضية
+        const images = document.querySelectorAll("img");
 
-        // Show or hide the button based on scroll position
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) { // Adjust the value to control when the button appears
-                goToTopButton.style.display = 'block';
+        // 🟢 تحميل الصور عند فتح الصفحة
+        for (let img of images) {
+            const imgSrc = img.getAttribute("data-src") || img.src;
+            const cachedImage = await getCachedImage(imgSrc);
+
+            if (cachedImage) {
+                img.src = cachedImage; // استخدام الصورة من الكاش أو localStorage
+                console.log("✅ تحميل من الكاش:", imgSrc);
             } else {
-                goToTopButton.style.display = 'none';
+                loadImageFromNetwork(img, imgSrc);
+            }
+
+            // 🟡 في حالة فشل تحميل الصورة، يتم استبدالها بالصورة الافتراضية
+            img.onerror = function () {
+                console.warn("⚠️ فشل تحميل الصورة، تعيين الصورة الافتراضية:", imgSrc);
+                img.src = defaultImage;
+            };
+        }
+
+        // 🟠 تحميل الصورة من الإنترنت وتخزينها
+        async function loadImageFromNetwork(img, imgSrc) {
+            try {
+                const response = await fetch(imgSrc);
+                if (!response.ok) throw new Error("❌ فشل تحميل الصورة من الشبكة.");
+
+                const blob = await response.blob();
+                const imageURL = URL.createObjectURL(blob);
+
+                img.src = imageURL; // عرض الصورة
+                await cacheImage(imgSrc, blob); // تخزين الصورة في الكاش
+
+            } catch (error) {
+                console.error("❌ خطأ في تحميل الصورة:", imgSrc, error);
+                img.src = defaultImage;
+            }
+        }
+
+        // 🔵 جلب الصورة من الكاش أو localStorage
+        async function getCachedImage(imgSrc) {
+            const cache = await caches.open(CACHE_NAME);
+            const cachedResponse = await cache.match(imgSrc);
+
+            if (cachedResponse) {
+                return URL.createObjectURL(await cachedResponse.blob());
+            } else {
+                return localStorage.getItem(imgSrc);
+            }
+        }
+
+        // 🔵 تخزين الصورة في `Cache API` و `localStorage`
+        async function cacheImage(imgSrc, blob) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(imgSrc, new Response(blob)); // تخزين الصورة في الكاش
+
+            // تخزين الصورة في `localStorage` إذا كان الحجم صغيرًا
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                try {
+                    localStorage.setItem(imgSrc, reader.result);
+                } catch (e) {
+                    console.warn("⚠️ localStorage ممتلئ، الصورة لن يتم تخزينها.");
+                }
+            };
+            reader.readAsDataURL(blob);
+        }
+
+        // 🟣 عند فقد الاتصال، تحميل الصور من الكاش أو localStorage
+        window.addEventListener("offline", async () => {
+            console.warn("📴 الوضع غير متصل بالإنترنت، تحميل الصور من التخزين...");
+            for (let img of images) {
+                const imgSrc = img.getAttribute("data-src") || img.src;
+                const cachedImage = await getCachedImage(imgSrc);
+                if (cachedImage) {
+                    img.src = cachedImage;
+                }
             }
         });
 
-        goToTopButton.addEventListener('click', function() {
-            // Scroll to the top of the page smoothly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // 🟢 عند استعادة الإنترنت، يتم تحديث الصور
+        window.addEventListener("online", async () => {
+            console.log("📡 استعادة الإنترنت، تحديث الصور...");
+            for (let img of images) {
+                const imgSrc = img.getAttribute("data-src") || img.src;
+                loadImageFromNetwork(img, imgSrc);
+            }
         });
-    </script>
-    <script src="https://raw.githack.com/ALOSTOURA-TV/Ostora/main/script.js"></script>
+    });
+</script>
 </body>
 </html>
